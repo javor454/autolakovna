@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="cs"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#1b1c1c",
+              "on-error": "#690005",
+              "secondary-fixed-dim": "#c8c6c5",
+              "secondary-fixed": "#e5e2e1",
+              "inverse-primary": "#c0000c",
+              "surface-tint": "#ffb4aa",
+              "surface-variant": "#353534",
+              "surface-bright": "#393939",
+              "on-secondary-fixed-variant": "#474746",
+              "secondary-container": "#474746",
+              "primary": "#e30613",
+              "on-tertiary-fixed-variant": "#004788",
+              "background": "#131313",
+              "tertiary-fixed-dim": "#a7c8ff",
+              "on-tertiary-container": "#f5f7ff",
+              "primary-fixed": "#ffdad5",
+              "surface-container-low": "#1c1b1b",
+              "outline-variant": "#5e3f3b",
+              "on-surface": "#e5e2e1",
+              "on-primary-container": "#fff5f3",
+              "on-primary-fixed": "#410001",
+              "on-primary-fixed-variant": "#930007",
+              "inverse-surface": "#e5e2e1",
+              "outline": "#af8782",
+              "on-secondary-container": "#b7b5b4",
+              "secondary": "#c8c6c5",
+              "surface-dim": "#131313",
+              "surface-container-highest": "#353534",
+              "surface-container-high": "#2a2a2a",
+              "inverse-on-surface": "#313030",
+              "primary-container": "#e30613",
+              "surface-container": "#201f1f",
+              "tertiary-container": "#0071d4",
+              "primary-fixed-dim": "#ffb4aa",
+              "tertiary-fixed": "#d5e3ff",
+              "on-primary": "#ffffff",
+              "on-error-container": "#ffdad6",
+              "on-surface-variant": "#e5e2e1",
+              "on-tertiary": "#003061",
+              "error-container": "#93000a",
+              "error": "#ffb4ab",
+              "on-tertiary-fixed": "#001b3c",
+              "tertiary": "#a7c8ff",
+              "on-secondary": "#303030",
+              "surface-container-lowest": "#0e0e0e",
+              "on-background": "#e5e2e1",
+              "surface": "#131313"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .precision-line {
+            height: 2px;
+            width: 0;
+            transition: width 0.3s ease;
+        }
+        .service-card:hover .precision-line {
+            width: 100%;
+        }
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-md">
+<div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+<div class="flex items-center">
+<img alt="Lak&amp;Go Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ujgMn0pefpdaYI0D0lSvUyLyiZyFjb244AvxgZRFDxGHnVbor-HYPKTue5NGaQSglj8vwoV9CrxPNTYSdo6bC7ncXV2xT3kr5RtVlOLaLIPXUyXA7x933UHJe7HGSkm1-hueVwd0Tqq2q4lM2t1Xixs4xvbgS46G5bTas8S4aA29Ei_ZHzKfZCzsd0beKkjknzS4l14dHvswRSBWOdfTh3AnRiJ_bf0OYTEUmMFtYG_zpja48IIFfIYzuleUrqZ9m9UHCBLaONGDQ"/>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#e30613] border-b-2 border-[#e30613] pb-1 font-medium transition-colors duration-300" href="#sluzby">Služby</a>
+<a class="text-[#e5e2e1] hover:text-[#e30613] transition-colors duration-300 font-medium" href="#proces">Proces</a>
+<a class="text-[#e5e2e1] hover:text-[#e30613] transition-colors duration-300 font-medium" href="#reference">Reference</a>
+<a class="text-[#e5e2e1] hover:text-[#e30613] transition-colors duration-300 font-medium" href="#kontakt">Kontakt</a>
+</div>
+<div class="flex items-center gap-4">
+<a class="hidden sm:block text-[#e5e2e1] hover:text-[#e30613] transition-colors font-medium" href="tel:123456789">Zavolat</a>
+<a class="bg-primary-container text-white px-5 py-2 rounded-lg font-bold uppercase text-sm tracking-wide transition-transform hover:scale-105 inline-block" href="#kontakt">
+                    Objednat termín
+                </a>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Moderní stříbrná Škoda Octavia v lakovně" class="w-full h-full object-cover opacity-40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9j8Rvdxy-bN7ZSjRDbQkbLKSwwy6n035E1vkLm0UImJ7S8d9zdHacQOGrxFmIhrHtgSvsyo2IwIknt1E260byG0qkG8CYug-lTmvk6X7Tqz-WuLdBa1apYg4FaNOrO-iGTWjAvX9DoHKx-0LUvlhQCz-jldyyDIhAYkiX7RfNkjXYFXKAd5ZiTNXYAKTKNRDWRtB9FHy_fZ7HjUzaqa_SoLF9pkGyu6z7CxIX6o5m3zJGGh3ZlK9pANJDUpquclZDtlWhARCWsxo"/>
+<div class="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background"></div>
+</div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 w-full text-center">
+<div class="max-w-3xl mx-auto">
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold tracking-tight leading-tight mb-6">
+                    Profesionální lakování <br/><span class="text-[#e30613]">bez kompromisů</span>
+</h1>
+<p class="text-xl text-[#e5e2e1] mb-10 font-medium leading-relaxed opacity-90">
+                    Lak&amp;Go – když má lak vypadat perfektně. Špičková technologie a precizní řemeslo pro váš vůz i domov.
+                </p>
+<div class="flex flex-wrap gap-4 justify-center mb-16 items-center">
+<a class="bg-primary-container text-white px-8 py-4 rounded-lg font-bold uppercase tracking-widest shadow-[0_20px_40px_rgba(227,6,19,0.2)] transition-transform hover:scale-105 inline-block text-center" href="#kontakt">
+                        Objednat termín
+                    </a>
+<a class="border border-outline/40 text-on-surface px-8 py-4 rounded-lg font-bold uppercase tracking-widest backdrop-blur-sm transition-colors hover:bg-surface-container-high inline-block text-center" href="tel:123456789">
+                        Zavolat
+                    </a>
+</div>
+<div class="py-16 flex justify-center w-full">
+<img alt="Lak&amp;Go Logo" class="h-48 md:h-64 w-auto object-contain mx-auto" src="https://lh3.googleusercontent.com/aida/ADBb0ujgMn0pefpdaYI0D0lSvUyLyiZyFjb244AvxgZRFDxGHnVbor-HYPKTue5NGaQSglj8vwoV9CrxPNTYSdo6bC7ncXV2xT3kr5RtVlOLaLIPXUyXA7x933UHJe7HGSkm1-hueVwd0Tqq2q4lM2t1Xixs4xvbgS46G5bTas8S4aA29Ei_ZHzKfZCzsd0beKkjknzS4l14dHvswRSBWOdfTh3AnRiJ_bf0OYTEUmMFtYG_zpja48IIFfIYzuleUrqZ9m9UHCBLaONGDQ"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Section -->
+<section class="py-24 bg-surface" id="sluzby">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col items-center justify-center mb-16 gap-4 text-center">
+<div>
+<h2 class="text-4xl font-headline font-extrabold tracking-tight">Naše <span class="text-[#e30613]">služby</span></h2>
+<p class="text-on-surface-variant mt-4 max-w-xl opacity-80 mx-auto">Vracíme lesk každodenním vozům i interiérovým prvkům s důrazem na detail.</p>
+</div>
+</div>
+<!-- 2x2 Services Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+<!-- Service 1 -->
+<div class="service-card bg-surface-container-low p-8 rounded-lg relative overflow-hidden group transition-all duration-300 hover:bg-surface-container-high">
+<div class="precision-line bg-[#e30613] absolute top-0 left-0"></div>
+<span class="material-symbols-outlined text-[#e30613] text-4xl mb-6">format_paint</span>
+<h3 class="text-xl font-headline font-bold mb-4 text-[#e5e2e1]">Lakování dílů</h3>
+<p class="text-on-surface-variant opacity-80">Kompletní i dílčí lakování všech vozidel. Od kapot po zrcátka.</p>
+</div>
+<!-- Service 2 -->
+<div class="service-card bg-surface-container-low p-8 rounded-lg relative overflow-hidden group transition-all duration-300 hover:bg-surface-container-high">
+<div class="precision-line bg-[#e30613] absolute top-0 left-0"></div>
+<span class="material-symbols-outlined text-[#e30613] text-4xl mb-6">car_repair</span>
+<h3 class="text-xl font-headline font-bold mb-4 text-[#e5e2e1]">Opravy po nehodě</h3>
+<p class="text-on-surface-variant opacity-80">Od deformačních po větší poškození karoserie. Vše jako nové.</p>
+</div>
+<!-- Service 3 -->
+<div class="service-card bg-surface-container-low p-8 rounded-lg relative overflow-hidden group transition-all duration-300 hover:bg-surface-container-high">
+<div class="precision-line bg-[#e30613] absolute top-0 left-0"></div>
+<span class="material-symbols-outlined text-[#e30613] text-4xl mb-6">auto_fix_high</span>
+<h3 class="text-xl font-headline font-bold mb-4 text-[#e5e2e1]">Opravy laku</h3>
+<p class="text-on-surface-variant opacity-80">Renovace laku a leštění. Odstranění škrábanců a oživení barvy.</p>
+</div>
+<!-- Service 4 -->
+<div class="service-card bg-surface-container-low p-8 rounded-lg relative overflow-hidden group transition-all duration-300 hover:bg-surface-container-high">
+<div class="precision-line bg-[#e30613] absolute top-0 left-0"></div>
+<span class="material-symbols-outlined text-[#e30613] text-4xl mb-6">chair</span>
+<h3 class="text-xl font-headline font-bold mb-4 text-[#e5e2e1]">Lakování nábytku</h3>
+<p class="text-on-surface-variant opacity-80">Kvalitní lakování kuchyňských dvířek, stolů a skříní s odolným finišem.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Before/After Slider -->
+<section class="py-24 bg-surface-container-low" id="reference">
+<div class="max-w-7xl mx-auto px-6 text-center mb-16">
+<h2 class="text-4xl font-headline font-extrabold mb-4">Výsledek, který <span class="text-[#e30613]">mluví sám za sebe</span></h2>
+<p class="text-on-surface-variant opacity-80">Sledujte transformaci běžných poškození v dokonalý povrch.</p>
+</div>
+<div class="max-w-5xl mx-auto px-6 relative group">
+<div class="aspect-video rounded-xl overflow-hidden relative shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
+<div class="absolute inset-0 w-full h-full">
+<img alt="Perfektní lak po opravě" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjftrFDqWHSODEgjsKLqivrQhC_SQSkvZflEMn3pLqz0Vh5WHaNvjhaM5IpcpioSRP6vAMBXNmAxEnR5psvvP72fh0KJmo-cAL0C4BRVz4N24shR9EDt1POYmaZ82fDSW4jdgpzmGqOJxXcgScqH-GX255sWiPqc3RSxACPp_73H7EAt0oBMKk8PelhQNH0plgE-q3lfvex0JrvqAmFIjE0H4TTSX12MaI4WEkNi_uBq66fS-uyM4XDgMLnNAVNGn8qz7yDCJN8XI"/>
+</div>
+<div class="absolute inset-0 w-1/2 h-full border-r-4 border-[#e30613] overflow-hidden">
+<img alt="Poškrábané auto před opravou" class="h-full object-cover w-[1024px] max-w-none filter grayscale brightness-75" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLsdd_DbHrGSV5dB7ehhtRdL76WMkLPPlyjzXfe12eUTQzhZuKufp_jK6X8xbCa6z0BxAvUnybN7IUiR_JVdLLrUDy20GIBXk7zssgqofGMK_baEzxAw_q0llkXGlVNWfA0KdC7IW2fJvc7zcCHO-qOEvGu5u2HJ1eC9hw1ObeS9ESrHzpg59gMmLOVZjhjM3ssvSKdMM5H_UoMYBggL2Y3VwwM1ZpW3bHOumIsZvshnsEcCVRZ5d5BdoQAfiadTDB1S-dgkLjnzw"/>
+<div class="absolute bottom-6 left-6 bg-surface-container-highest/80 backdrop-blur px-4 py-2 rounded text-sm font-label uppercase tracking-widest">Před</div>
+</div>
+<div class="absolute bottom-6 right-6 bg-[#e30613] px-4 py-2 rounded text-sm font-label uppercase tracking-widest text-white">Perfektní lak</div>
+<div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-10 flex items-center justify-center pointer-events-none">
+<div class="w-10 h-10 bg-[#e30613] rounded-full shadow-2xl flex items-center justify-center text-white">
+<span class="material-symbols-outlined">unfold_more</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-24 bg-surface" id="proces">
+<div class="max-w-7xl mx-auto px-6">
+<h2 class="text-4xl font-headline font-extrabold mb-20 text-center">Náš <span class="text-[#e30613]">precizní proces</span></h2>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+<!-- Step 1 -->
+<div class="relative">
+<span class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-20">1</span>
+<div class="relative z-10">
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[#e30613]">login</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Příjem vozu</h3>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Hned přijmeme vaše auto jako nové věci. Prvotní prohlídka a zadání do systému.</p>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="relative">
+<span class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-20">2</span>
+<div class="relative z-10">
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[#e30613]">request_quote</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Odhad ceny</h3>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Ukážeme ti cenu a termín, domluvíme další detaily a dáme garance.</p>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative">
+<span class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-20">3</span>
+<div class="relative z-10">
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[#e30613]">imagesearch_roller</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Lakování</h3>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Auto precizně nalakujeme do perfektní barvy s využitím moderní kabiny.</p>
+</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="relative">
+<span class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-20">4</span>
+<div class="relative z-10">
+<div class="flex flex-col items-center text-center">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-[#e30613]">verified_user</span>
+</div>
+<h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Předání</h3>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Nový auto s top výsledkem. Finální kontrola čistoty a spokojenosti.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Lead Gen Form Section -->
+<section class="py-24 bg-surface-container-low" id="kontakt">
+<div class="max-w-4xl mx-auto px-6 text-center">
+<h2 class="text-4xl font-headline font-extrabold mb-6">Máte dotaz? <br/><span class="text-[#e30613]">Napište nám!</span></h2>
+<p class="text-on-surface-variant text-lg mb-12 opacity-80 mx-auto max-w-2xl">
+                Pošlete nám fotku poškození pro rychlejší nacenění. Odpovíme vám do 24 hodin s konkrétním návrhem termínu.
+            </p>
+<div class="w-full max-w-2xl mx-auto">
+<form class="bg-surface p-8 md:p-12 rounded-xl border border-outline/10 space-y-6 text-left" id="contact-form" novalidate="">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-70" for="contact-name">Jméno</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface" id="contact-name" name="name" placeholder="Jan Novák" required="" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-70" for="contact-email">E-mail</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface" id="contact-email" name="email" placeholder="jan@seznam.cz" required="" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-70" for="contact-phone">Telefon</label>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface" id="contact-phone" name="phone" placeholder="+420" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-70" for="contact-message">Popis poškození</label>
+<textarea class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface" id="contact-message" name="message" placeholder="Popište, co potřebujete nalakovat..." required="" rows="4"></textarea>
+</div>
+<input accept="image/*" class="sr-only" id="contact-photos" multiple="" name="photos" type="file"/>
+<label class="flex items-center justify-center border-2 border-dashed border-outline-variant/30 rounded-lg p-8 hover:bg-surface-container-lowest transition-colors cursor-pointer" for="contact-photos">
+<div class="text-center pointer-events-none">
+<span class="material-symbols-outlined text-[#e30613] text-3xl mb-2">upload_file</span>
+<p class="text-sm font-bold uppercase tracking-widest text-[#e5e2e1]">Nahrát foto</p>
+<p class="text-xs text-on-surface-variant mt-1 opacity-70">PNG, JPG (omezení hostingu)</p>
+</div>
+</label>
+<p class="text-sm text-center min-h-[1.25rem] text-on-surface-variant" id="contact-form-status" role="status"></p>
+<button class="w-full bg-primary-container text-white py-4 rounded-lg font-bold uppercase tracking-widest shadow-lg transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:pointer-events-none" id="contact-submit" type="submit">
+                        Odeslat poptávku
+                    </button>
+</form>
+<script>
+(function () {
+  var form = document.getElementById('contact-form');
+  var statusEl = document.getElementById('contact-form-status');
+  var submitBtn = document.getElementById('contact-submit');
+  if (!form || !statusEl || !submitBtn) return;
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    statusEl.textContent = '';
+    statusEl.className = 'text-sm text-center min-h-[1.25rem] text-on-surface-variant';
+    submitBtn.disabled = true;
+    var fd = new FormData(form);
+    fetch('/api/contact', { method: 'POST', body: fd })
+      .then(function (r) { return r.json().then(function (data) { return { r: r, data: data }; }); })
+      .then(function (_ref) {
+        var r = _ref.r;
+        var data = _ref.data;
+        if (r.ok && data.ok) {
+          statusEl.textContent = 'Děkujeme, poptávku jsme přijali.';
+          statusEl.className = 'text-sm text-center min-h-[1.25rem] text-[#e30613]';
+          form.reset();
+        } else {
+          statusEl.textContent = (data && data.error) ? data.error : 'Něco se pokazilo, zkuste to prosím znovu.';
+          statusEl.className = 'text-sm text-center min-h-[1.25rem] text-red-400';
+        }
+      })
+      .catch(function () {
+        statusEl.textContent = 'Nelze odeslat, zkontrolujte připojení.';
+        statusEl.className = 'text-sm text-center min-h-[1.25rem] text-red-400';
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+      });
+  });
+})();
+</script>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-[#0e0e0e] w-full py-12 border-t border-[#353534]/20">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 gap-6 max-w-7xl mx-auto">
+<div class="flex flex-col items-center md:items-start gap-2">
+<div class="text-lg font-bold text-[#e5e2e1]">Lak&amp;Go Autolakovna</div>
+<p class="font-manrope text-sm text-[#e5e2e1] opacity-60">© 2024 Lak&amp;Go Autolakovna. Všechna práva vyhrazena.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-6 md:gap-12">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-xs font-bold uppercase tracking-widest text-[#e30613] mb-2">Adresa</span>
+<a class="font-manrope text-sm text-[#e5e2e1] opacity-80 hover:text-[#e30613] transition-colors" href="#">Praha | Růžová 25</a>
+</div>
+<div class="flex flex-col items-center md:items-start">
+<span class="text-xs font-bold uppercase tracking-widest text-[#e30613] mb-2">Telefon</span>
+<a class="font-manrope text-sm text-[#e5e2e1] opacity-80 hover:text-[#e30613] transition-colors" href="tel:123456789">+420 123 456 789</a>
+</div>
+<div class="flex flex-col items-center md:items-start">
+<span class="text-xs font-bold uppercase tracking-widest text-[#e30613] mb-2">Právní</span>
+<a class="font-manrope text-sm text-[#e5e2e1] opacity-80 hover:text-[#e30613] transition-colors" href="#">Ochrana údajů</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
