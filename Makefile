@@ -1,40 +1,33 @@
-.PHONY: help install dev dev-bg down shell vercel-login vercel-link env-example
+.PHONY: help install dev dev-bg down shell vercel-login vercel-link env-example logs drive-oauth-token
 
-# Default: show available commands
-help:
-	@echo "Autolakovna — common commands (Docker only for dev; no local Node required)"
+help: ## Show available commands
+	@echo "Commands:"
 	@echo ""
-	@echo "  make install       Install npm deps inside a one-off container (writes node_modules/)"
-	@echo "  make dev           Start Vercel dev on http://localhost:3000 (install + vercel dev)"
-	@echo "  make dev-bg        Same as dev, detached (background)"
-	@echo "  make down          Stop detached containers"
-	@echo "  make shell         Open sh in the Node 20 container (project mounted at /app)"
-	@echo "  make vercel-login  Log in to Vercel (interactive, first-time setup)"
-	@echo "  make vercel-link   Link this folder to a Vercel project (interactive)"
-	@echo "  make env-example   Copy .env.example to .env if .env does not exist yet"
-	@echo ""
-	@echo "See SETUP.md for Resend, Google Drive, and environment variables."
+	@grep -E '^[a-zA-Z0-9_.-]+:.*##' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*## "}; {printf "  make %-18s %s\n", $$1, $$2}'
 
-install:
+install: ## Install npm deps inside a one-off container (writes node_modules/)
 	docker compose run --rm dev npm ci
 
-dev:
+dev: ## Start Vercel dev on http://localhost:3000 (install + vercel dev)
 	docker compose up
 
-dev-bg:
+dev-bg: ## Same as dev, detached (background)
 	docker compose up -d
 
-down:
+down: ## Stop detached containers
 	docker compose down
 
-shell:
+shell: ## Open sh in the dev container (Node 20 + npm 11, project at /app)
 	docker compose run --rm dev sh
 
-vercel-login:
+vercel-login: ## Log in to Vercel (interactive, first-time setup)
 	docker compose run --rm -it dev npx vercel login
 
-vercel-link:
+vercel-link: ## Link this folder to a Vercel project (interactive)
 	docker compose run --rm -it dev npx vercel link
 
-env-example:
-	@if [ -f .env ]; then echo ".env already exists; not overwriting."; else cp .env.example .env && echo "Created .env from .env.example — edit it with your secrets."; fi
+logs: ## Show logs from the dev container
+	docker compose logs dev
+
+drive-oauth-token: ## One-time: browser OAuth → prints GOOGLE_REFRESH_TOKEN (needs port 8765)
+	docker compose run --rm -p 8765:8765 dev node --env-file=.env scripts/google-oauth-token.mjs

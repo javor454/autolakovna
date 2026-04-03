@@ -1,9 +1,11 @@
 services:
   dev:
-    image: node:20-bookworm-slim
+    container_name: autolakovna
+    build: .
+    env_file: .env
     working_dir: /app
     volumes:
       - .:/app
     ports:
       - "3000:3000"
-    command: sh -c "npm install && npx vercel dev --listen 0.0.0.0:3000"
+    command: sh -c "npm install && npx vercel dev --listen 0.0.0.0:3000 --token \"$VERCEL_TOKEN\""
