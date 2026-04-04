@@ -1,3 +1,24 @@
+.nav-section-link {
+  color: #e5e2e1;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.25rem;
+  font-weight: 500;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-section-link:hover {
+  color: #e30613;
+}
+
+.nav-section-link--active {
+  color: #e30613;
+  border-bottom-color: #e30613;
+}
+
+.nav-section-link--active:hover {
+  color: #e30613;
+}
+
 .material-symbols-outlined {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
