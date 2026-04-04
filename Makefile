@@ -1,4 +1,4 @@
-.PHONY: help install dev dev-bg down shell vercel-login vercel-link env-example logs drive-oauth-token
+.PHONY: help install dev dev-bg down shell vercel-login vercel-whoami vercel-link deploy deploy-preview env-example logs drive-oauth-token
 
 help: ## Show available commands
 	@echo "Commands:"
@@ -20,11 +20,20 @@ down: ## Stop detached containers
 shell: ## Open sh in the dev container (Node 20 + npm 11, project at /app)
 	docker compose run --rm dev sh
 
-vercel-login: ## Log in to Vercel (interactive, first-time setup)
+vercel-login: ## Interaktivní login (e-mail/GitHub); IGNORUJE VERCEL_TOKEN — jen pro session v kontejneru
 	docker compose run --rm -it dev npx vercel login
 
-vercel-link: ## Link this folder to a Vercel project (interactive)
-	docker compose run --rm -it dev npx vercel link
+vercel-whoami: ## Ověří VERCEL_TOKEN z .env (bez vercel login — stejné jako u vercel dev)
+	docker compose run --rm dev sh -c 'npx vercel whoami --token "$$VERCEL_TOKEN"'
+
+vercel-link: ## Propojení projektu (s tokenem z .env; může vyžadovat -it u prvního linku)
+	docker compose run --rm -it dev sh -c 'npx vercel link --token "$$VERCEL_TOKEN"'
+
+deploy-preview: ## Nasazení preview (unikátní URL) — VERCEL_TOKEN + .vercel/project.json
+	docker compose run --rm dev sh -c 'npx vercel deploy --token "$$VERCEL_TOKEN" --yes'
+
+deploy: ## Produkční nasazení (stejná „Production“ větev jako na vercel.com) — totéž + --prod
+	docker compose run --rm dev sh -c 'npx vercel deploy --prod --token "$$VERCEL_TOKEN" --yes'
 
 logs: ## Show logs from the dev container
 	docker compose logs dev

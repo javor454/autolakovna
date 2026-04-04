@@ -81,7 +81,8 @@
       },
     }
   </script>
-  <script defer="" src="/contact-form.js"></script>
+  <script defer src="/contact-form.js"></script>
+  <script defer src="/before-after-slider.js"></script>
 </head>
 
 <body
@@ -89,17 +90,22 @@
   <!-- Top Navigation -->
   <nav class="fixed top-0 w-full z-50 bg-[#131313]/60 backdrop-blur-md">
     <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
-      <div class="flex items-center">
-        <img alt="Lak&amp;Go Logo" class="h-8 w-auto object-contain"
-          src="https://lh3.googleusercontent.com/aida/ADBb0ujgMn0pefpdaYI0D0lSvUyLyiZyFjb244AvxgZRFDxGHnVbor-HYPKTue5NGaQSglj8vwoV9CrxPNTYSdo6bC7ncXV2xT3kr5RtVlOLaLIPXUyXA7x933UHJe7HGSkm1-hueVwd0Tqq2q4lM2t1Xixs4xvbgS46G5bTas8S4aA29Ei_ZHzKfZCzsd0beKkjknzS4l14dHvswRSBWOdfTh3AnRiJ_bf0OYTEUmMFtYG_zpja48IIFfIYzuleUrqZ9m9UHCBLaONGDQ" />
-      </div>
+      <a href="#">
+        <div class="flex items-center">
+          <svg viewBox="0 0 120 32" class="h-8 w-auto" aria-label="Lak&Go Logo">
+            <text x="0" y="24" font-family="Plus Jakarta Sans" font-weight="800" font-size="24" fill="#e5e2e1">
+              Lak<tspan fill="#e30613">&</tspan>Go
+            </text>
+          </svg>
+        </div>
+      </a>
       <div class="hidden md:flex items-center gap-8">
         <a class="text-[#e30613] border-b-2 border-[#e30613] pb-1 font-medium transition-colors duration-300"
           href="#sluzby">Služby</a>
         <a class="text-[#e5e2e1] hover:text-[#e30613] transition-colors duration-300 font-medium"
           href="#proces">Proces</a>
-        <a class="text-[#e5e2e1] hover:text-[#e30613] transition-colors duration-300 font-medium"
-          href="#reference">Reference</a>
+        <!-- <a class="text-[#e5e2e1] hover:text-[#e30613] transition-colors duration-300 font-medium" -->
+          <!-- href="#reference">Reference</a> -->
         <a class="text-[#e5e2e1] hover:text-[#e30613] transition-colors duration-300 font-medium"
           href="#kontakt">Kontakt</a>
       </div>
@@ -108,7 +114,7 @@
           href="tel:123456789">Zavolat</a>
         <a class="bg-primary-container text-white px-5 py-2 rounded-lg font-bold uppercase text-sm tracking-wide transition-transform hover:scale-105 inline-block"
           href="#kontakt">
-          Objednat termín
+          Vytvořit poptávku
         </a>
       </div>
     </div>
@@ -116,9 +122,14 @@
   <!-- Hero Section -->
   <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
     <div class="absolute inset-0 z-0">
-      <img alt="Moderní stříbrná Škoda Octavia v lakovně" class="w-full h-full object-cover opacity-40"
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9j8Rvdxy-bN7ZSjRDbQkbLKSwwy6n035E1vkLm0UImJ7S8d9zdHacQOGrxFmIhrHtgSvsyo2IwIknt1E260byG0qkG8CYug-lTmvk6X7Tqz-WuLdBa1apYg4FaNOrO-iGTWjAvX9DoHKx-0LUvlhQCz-jldyyDIhAYkiX7RfNkjXYFXKAd5ZiTNXYAKTKNRDWRtB9FHy_fZ7HjUzaqa_SoLF9pkGyu6z7CxIX6o5m3zJGGh3ZlK9pANJDUpquclZDtlWhARCWsxo" />
-      <div class="absolute inset-0 bg-gradient-to-b from-background/40 via-background/80 to-background"></div>
+      <!-- Base layered gradient -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#131313] via-[#1c1b1b] to-[#131313]"></div>
+
+      <!-- Precision kinetic red accent -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#e30613]/5 via-transparent to-transparent opacity-30"></div>
+
+      <!-- Atmospheric depth -->
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#1c1b1b]"></div>
     </div>
     <div class="relative z-10 max-w-7xl mx-auto px-6 w-full text-center">
       <div class="max-w-3xl mx-auto">
@@ -139,8 +150,11 @@
           </a>
         </div>
         <div class="py-16 flex justify-center w-full">
-          <img alt="Lak&amp;Go Logo" class="h-48 md:h-64 w-auto object-contain mx-auto"
-            src="https://lh3.googleusercontent.com/aida/ADBb0ujgMn0pefpdaYI0D0lSvUyLyiZyFjb244AvxgZRFDxGHnVbor-HYPKTue5NGaQSglj8vwoV9CrxPNTYSdo6bC7ncXV2xT3kr5RtVlOLaLIPXUyXA7x933UHJe7HGSkm1-hueVwd0Tqq2q4lM2t1Xixs4xvbgS46G5bTas8S4aA29Ei_ZHzKfZCzsd0beKkjknzS4l14dHvswRSBWOdfTh3AnRiJ_bf0OYTEUmMFtYG_zpja48IIFfIYzuleUrqZ9m9UHCBLaONGDQ" />
+          <svg viewBox="0 0 300 80" class="h-48 md:h-64 w-auto mx-auto" aria-label="Lak&Go Logo">
+            <text x="150" y="60" text-anchor="middle" font-family="Plus Jakarta Sans" font-weight="800" font-size="60" fill="#e5e2e1">
+              Lak<tspan fill="#e30613">&</tspan>Go
+            </text>
+          </svg>
         </div>
       </div>
     </div>
@@ -197,40 +211,64 @@
     </div>
   </section>
   <!-- Before/After Slider -->
-  <section class="py-24 bg-surface-container-low" id="reference">
-    <div class="max-w-7xl mx-auto px-6 text-center mb-16">
-      <h2 class="text-4xl font-headline font-extrabold mb-4">Výsledek, který <span class="text-[#e30613]">mluví sám za
-          sebe</span></h2>
-      <p class="text-on-surface-variant opacity-80">Sledujte transformaci běžných poškození v dokonalý povrch.</p>
-    </div>
-    <div class="max-w-5xl mx-auto px-6 relative group">
-      <div class="aspect-video rounded-xl overflow-hidden relative shadow-[0_20px_40px_rgba(0,0,0,0.6)]">
-        <div class="absolute inset-0 w-full h-full">
-          <img alt="Perfektní lak po opravě" class="w-full h-full object-cover"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjftrFDqWHSODEgjsKLqivrQhC_SQSkvZflEMn3pLqz0Vh5WHaNvjhaM5IpcpioSRP6vAMBXNmAxEnR5psvvP72fh0KJmo-cAL0C4BRVz4N24shR9EDt1POYmaZ82fDSW4jdgpzmGqOJxXcgScqH-GX255sWiPqc3RSxACPp_73H7EAt0oBMKk8PelhQNH0plgE-q3lfvex0JrvqAmFIjE0H4TTSX12MaI4WEkNi_uBq66fS-uyM4XDgMLnNAVNGn8qz7yDCJN8XI" />
-        </div>
-        <div class="absolute inset-0 w-1/2 h-full border-r-4 border-[#e30613] overflow-hidden">
-          <img alt="Poškrábané auto před opravou"
-            class="h-full object-cover w-[1024px] max-w-none filter grayscale brightness-75"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLsdd_DbHrGSV5dB7ehhtRdL76WMkLPPlyjzXfe12eUTQzhZuKufp_jK6X8xbCa6z0BxAvUnybN7IUiR_JVdLLrUDy20GIBXk7zssgqofGMK_baEzxAw_q0llkXGlVNWfA0KdC7IW2fJvc7zcCHO-qOEvGu5u2HJ1eC9hw1ObeS9ESrHzpg59gMmLOVZjhjM3ssvSKdMM5H_UoMYBggL2Y3VwwM1ZpW3bHOumIsZvshnsEcCVRZ5d5BdoQAfiadTDB1S-dgkLjnzw" />
-          <div
-            class="absolute bottom-6 left-6 bg-surface-container-highest/80 backdrop-blur px-4 py-2 rounded text-sm font-label uppercase tracking-widest">
-            Před</div>
-        </div>
-        <div
-          class="absolute bottom-6 right-6 bg-[#e30613] px-4 py-2 rounded text-sm font-label uppercase tracking-widest text-white">
-          Perfektní lak</div>
-        <div
-          class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-10 flex items-center justify-center pointer-events-none">
-          <div class="w-10 h-10 bg-[#e30613] rounded-full shadow-2xl flex items-center justify-center text-white">
-            <span class="material-symbols-outlined">unfold_more</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- <section class="py-24 bg-surface-container-low" id="reference"> -->
+    <!-- <div class="max-w-7xl mx-auto px-6 text-center mb-16"> -->
+      <!-- <h2 class="text-4xl font-headline font-extrabold mb-4">Výsledek, který <span class="text-[#e30613]">mluví sám za -->
+          <!-- sebe</span></h2> -->
+      <!-- <p class="text-on-surface-variant opacity-80">Sledujte transformaci běžných poškození v dokonalý povrch.</p> -->
+    <!-- </div> -->
+    <!-- <div class="max-w-5xl mx-auto px-6 relative group"> -->
+      <!-- <div class="aspect-video rounded-xl overflow-hidden relative shadow-[0_20px_40px_rgba(0,0,0,0.6)]"> -->
+        <!-- After: Clean polished car (right side) - REPLACE /images/after.jpg with your photo -->
+        <!-- <div class="absolute inset-0 w-full h-full"> -->
+          <!-- <img alt="Perfektně nalakované auto - hladký lesklý povrch" class="w-full h-full object-cover" -->
+            <!-- style="object-position: center center;" -->
+            <!-- src="/images/after.jpg" -->
+            <!-- onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /> -->
+          <!-- <div class="absolute inset-0 bg-gradient-to-br from-[#2a2a2a] to-[#1c1b1b] flex items-center justify-center" style="display:none;"> -->
+            <!-- <div class="text-center p-12 max-w-md"> -->
+              <!-- <div class="text-6xl mb-6">✨</div> -->
+              <!-- <p class="text-[#e5e2e1] text-xl font-bold mb-2">PO LAKOVÁNÍ</p> -->
+              <!-- <p class="text-[#e30613] text-sm uppercase tracking-widest">Nahraďte vlastní fotkou</p> -->
+              <!-- <p class="text-[#e5e2e1]/60 text-xs mt-4">Umístěte fotku perfektně nalakovaného auta<br/>do <code class="bg-[#131313] px-2 py-1 rounded">public/images/after.jpg</code></p> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </div> -->
+        <!-- Before: Scratched damaged car (left side overlay) - REPLACE /images/before.jpg with your photo -->
+        <!-- <div class="absolute inset-0 w-1/2 h-full border-r-4 border-[#e30613] overflow-hidden" id="before-overlay"> -->
+          <!-- <img alt="Poškrábané auto před lakováním" -->
+            <!-- id="before-image" -->
+            <!-- class="absolute top-0 left-0 h-full object-cover filter grayscale brightness-75" -->
+            <!-- style="object-position: center center;" -->
+            <!-- src="/images/before.jpg" -->
+            <!-- onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" /> -->
+          <!-- <div class="absolute inset-0 bg-gradient-to-br from-[#1c1b1b] to-[#131313] flex items-center justify-center filter grayscale brightness-75" style="display:none;"> -->
+            <!-- <div class="text-center p-12"> -->
+              <!-- <div class="text-6xl mb-6">⚠️</div> -->
+              <!-- <p class="text-[#e5e2e1] text-xl font-bold mb-2">PŘED LAKOVÁNÍM</p> -->
+              <!-- <p class="text-[#e30613] text-sm uppercase tracking-widest">Nahraďte vlastní fotkou</p> -->
+              <!-- <p class="text-[#e5e2e1]/60 text-xs mt-4 max-w-md">Umístěte fotku poškozeného auta<br/>do <code class="bg-[#0e0e0e] px-2 py-1 rounded">public/images/before.jpg</code></p> -->
+            <!-- </div> -->
+          <!-- </div> -->
+          <!-- <div -->
+            <!-- class="absolute bottom-6 left-6 bg-surface-container-highest/80 backdrop-blur px-4 py-2 rounded text-sm font-label uppercase tracking-widest transition-opacity duration-200" -->
+            <!-- id="before-label"> -->
+            <!-- Před</div> -->
+        <!-- </div> -->
+        <!-- <div -->
+          <!-- class="absolute bottom-6 right-6 bg-[#e30613] px-4 py-2 rounded text-sm font-label uppercase tracking-widest text-white transition-opacity duration-200" -->
+          <!-- id="after-label"> -->
+          <!-- Po lakování</div> -->
+        <!-- <div class="absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-10 flex items-center justify-center"> -->
+          <!-- <div class="w-10 h-10 bg-[#e30613] rounded-full shadow-2xl flex items-center justify-center text-white select-none"> -->
+            <!-- <span class="material-symbols-outlined">unfold_more</span> -->
+          <!-- </div> -->
+        <!-- </div> -->
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </section> -->
   <!-- Process Section -->
-  <section class="py-24 bg-surface" id="proces">
+  <section class="py-24 bg-surface-container-low" id="proces">
     <div class="max-w-7xl mx-auto px-6">
       <h2 class="text-4xl font-headline font-extrabold mb-20 text-center">Náš <span class="text-[#e30613]">precizní
           proces</span></h2>
@@ -238,68 +276,66 @@
         <!-- Step 1 -->
         <div class="relative">
           <span
-            class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-20">1</span>
+            class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-40">1</span>
           <div class="relative z-10">
             <div class="flex flex-col items-center text-center">
               <div class="flex items-center gap-4 mb-6">
-                <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+                <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline/10">
                   <span class="material-symbols-outlined text-[#e30613]">login</span>
                 </div>
-                <h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Příjem vozu</h3>
+                <h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Příjem</h3>
               </div>
-              <p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Hned přijmeme vaše auto
-                jako nové věci. Prvotní prohlídka a zadání do systému.</p>
+              <p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Přijmeme Váš vůz nebo předmět, provedeme vstupní prohlídku a zadáme do systému.</p>
             </div>
           </div>
         </div>
         <!-- Step 2 -->
         <div class="relative">
           <span
-            class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-20">2</span>
+            class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-40">2</span>
           <div class="relative z-10">
             <div class="flex flex-col items-center text-center">
               <div class="flex items-center gap-4 mb-6">
-                <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+                <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline/10">
                   <span class="material-symbols-outlined text-[#e30613]">request_quote</span>
                 </div>
-                <h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Odhad ceny</h3>
+                <h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Nabídka</h3>
               </div>
-              <p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Ukážeme ti cenu a termín,
-                domluvíme další detaily a dáme garance.</p>
+              <p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Probereme cenu, termín, detaily a zajistíme garanci.</p>
             </div>
           </div>
         </div>
         <!-- Step 3 -->
         <div class="relative">
           <span
-            class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-20">3</span>
+            class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-40">3</span>
           <div class="relative z-10">
             <div class="flex flex-col items-center text-center">
               <div class="flex items-center gap-4 mb-6">
-                <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+                <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline/10">
                   <span class="material-symbols-outlined text-[#e30613]">imagesearch_roller</span>
                 </div>
-                <h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Lakování</h3>
+                <h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Realizace</h3>
               </div>
-              <p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Auto precizně nalakujeme do
-                perfektní barvy s využitím moderní kabiny.</p>
+              <p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Vůz nebo předmět nalakujeme do
+                perfektní barvy s využitím moderního lakovacího zařízení.</p>
             </div>
           </div>
         </div>
         <!-- Step 4 -->
         <div class="relative">
           <span
-            class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-20">4</span>
+            class="absolute -top-12 -left-4 text-8xl font-headline font-extrabold text-surface-variant md:left-1/2 md:-translate-x-1/2 opacity-40">4</span>
           <div class="relative z-10">
             <div class="flex flex-col items-center text-center">
               <div class="flex items-center gap-4 mb-6">
-                <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+                <div class="w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center border border-outline/10">
                   <span class="material-symbols-outlined text-[#e30613]">verified_user</span>
                 </div>
                 <h3 class="text-xl font-headline font-bold text-[#e5e2e1]">Předání</h3>
               </div>
-              <p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Nový auto s top výsledkem.
-                Finální kontrola čistoty a spokojenosti.</p>
+              <p class="text-on-surface-variant text-sm leading-relaxed opacity-80 max-w-xs">Finální kontrola a předání k vaší spokojenosti.
+                Zanechte nám zpětnou vazbu a získejte slevu na další služby.</p>
             </div>
           </div>
         </div>
@@ -307,59 +343,67 @@
     </div>
   </section>
   <!-- Lead Gen Form Section -->
-  <section class="py-24 bg-surface-container-low" id="kontakt">
+  <section class="py-24 bg-surface" id="kontakt">
     <div class="max-w-4xl mx-auto px-6 text-center">
-      <h2 class="text-4xl font-headline font-extrabold mb-6">Máte dotaz? <br /><span class="text-[#e30613]">Napište
+      <h2 class="text-4xl font-headline font-extrabold mb-6">Máte zájem? <br /><span class="text-[#e30613]">Napište
           nám!</span></h2>
       <p class="text-on-surface-variant text-lg mb-12 opacity-80 mx-auto max-w-2xl">
-        Pošlete nám fotku poškození pro rychlejší nacenění. Odpovíme vám do 24 hodin s konkrétním návrhem termínu.
+        Pošlete nám fotku pro rychlejší nacenění. Odpovíme vám do 24 hodin s konkrétním návrhem termínu.
       </p>
       <div class="w-full max-w-2xl mx-auto">
-        <form class="bg-surface p-8 md:p-12 rounded-xl border border-outline/10 space-y-6 text-left" id="contact-form"
+        <form class="bg-surface-container-low p-8 md:p-12 rounded-xl border border-outline/10 flex flex-col gap-5 text-left" id="contact-form"
           novalidate="">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="space-y-2">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 items-start">
+            <div class="flex flex-col gap-2.5 w-full min-w-0">
               <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-70"
-                for="contact-name">Jméno</label>
+                for="contact-name">Jméno a příjmení</label>
               <input
-                class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface"
-                id="contact-name" name="name" placeholder="Jan Novák" required="" type="text" />
+                class="contact-form-control w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface"
+                id="contact-name" name="name" placeholder="Jan Novák" required="" type="text"
+                aria-describedby="contact-name-error" />
+              <p class="text-xs text-red-400 empty:hidden mt-0.5 leading-snug" id="contact-name-error" role="alert"></p>
             </div>
-            <div class="space-y-2">
+            <div class="flex flex-col gap-2.5 w-full min-w-0">
               <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-70"
                 for="contact-email">E-mail</label>
               <input
-                class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface"
-                id="contact-email" name="email" placeholder="jan@seznam.cz" required="" type="email" />
+                class="contact-form-control w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface"
+                id="contact-email" name="email" placeholder="jan@seznam.cz" required="" type="email"
+                aria-describedby="contact-email-error" />
+              <p class="text-xs text-red-400 empty:hidden mt-0.5 leading-snug" id="contact-email-error" role="alert"></p>
             </div>
           </div>
-          <div class="space-y-2">
+          <div class="flex flex-col gap-2.5">
             <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-70"
               for="contact-phone">Telefon</label>
             <input
-              class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface"
-              id="contact-phone" name="phone" placeholder="+420" type="tel" />
+              class="contact-form-control w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface"
+              id="contact-phone" name="phone" placeholder="+420 123 123 123" type="tel" />
           </div>
-          <div class="space-y-2">
+          <div class="flex flex-col gap-2.5">
             <label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-70"
-              for="contact-message">Popis poškození</label>
+              for="contact-message">Popis požadované služby</label>
             <textarea
-              class="w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface"
+              class="contact-form-control w-full bg-surface-container-lowest border-none rounded-lg p-4 focus:ring-1 focus:ring-[#e30613]/30 transition-all text-on-surface"
               id="contact-message" name="message" placeholder="Popište, co potřebujete nalakovat..." required=""
-              rows="4"></textarea>
+              rows="4" aria-describedby="contact-message-error"></textarea>
+            <p class="text-xs text-red-400 empty:hidden mt-0.5 leading-snug" id="contact-message-error" role="alert"></p>
           </div>
-          <input accept="image/*" class="sr-only" id="contact-photos" multiple="" name="photos" type="file" />
-          <label
-            class="flex items-center justify-center border-2 border-dashed border-outline-variant/30 rounded-lg p-8 hover:bg-surface-container-lowest transition-colors cursor-pointer"
-            for="contact-photos">
-            <div class="text-center pointer-events-none">
-              <span class="material-symbols-outlined text-[#e30613] text-3xl mb-2">upload_file</span>
-              <p class="text-sm font-bold uppercase tracking-widest text-[#e5e2e1]">Nahrát foto</p>
-              <p class="text-xs text-on-surface-variant mt-1 opacity-70">PNG, JPG — fotky celkem max cca 3 MB</p>
-            </div>
-          </label>
-          <p class="text-sm text-center min-h-[1.25rem] text-on-surface-variant" id="contact-form-status" role="status">
-          </p>
+          <div class="flex flex-col gap-2">
+            <input accept="image/*" class="sr-only" id="contact-photos" multiple="" name="photos" type="file" />
+            <label
+              class="contact-form-control flex items-center justify-center border-2 border-dashed border-outline-variant/30 rounded-lg py-5 px-6 md:py-6 md:px-8 hover:bg-surface-container-lowest transition-colors cursor-pointer"
+              for="contact-photos" id="contact-photos-label" aria-describedby="contact-photos-error">
+              <div class="text-center pointer-events-none">
+                <span class="material-symbols-outlined text-[#e30613] text-3xl mb-2" id="upload-icon">upload_file</span>
+                <p class="text-sm font-bold uppercase tracking-widest text-[#e5e2e1]" id="upload-text">Nahrát foto</p>
+                <p class="text-xs text-on-surface-variant mt-1 opacity-70">PNG, JPG — max. 5 fotek, celkem max. 3 MB</p>
+              </div>
+            </label>
+            <p class="text-xs text-red-400 empty:hidden leading-snug" id="contact-photos-error" role="alert"></p>
+            <div class="hidden space-y-2" id="files-list"></div>
+          </div>
+          <p class="text-sm text-center text-on-surface-variant empty:hidden" id="contact-form-status" role="status"></p>
           <button
             class="w-full bg-primary-container text-white py-4 rounded-lg font-bold uppercase tracking-widest shadow-lg transition-transform hover:scale-[1.02] active:scale-95 disabled:opacity-50 disabled:pointer-events-none"
             id="contact-submit" type="submit">

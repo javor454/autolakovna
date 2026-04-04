@@ -154,7 +154,12 @@ export default async function handleRequest(req, res) {
     parsed = await parseMultipart(req);
   } catch (err) {
     console.error('[contact] multipart parse error:', err);
-    res.status(400).json({ ok: false, error: 'Neplatná data formuláře.' });
+    res.status(400).json({
+      ok: false,
+      errors: {
+        form: 'Nepodařilo se zpracovat odeslaná data. Zkuste to znovu nebo bez fotek.',
+      },
+    });
     return;
   }
 
@@ -164,13 +169,17 @@ export default async function handleRequest(req, res) {
   const phone = String(fields.phone ?? '').trim();
   const message = String(fields.message ?? '').trim();
 
-  if (!name || !email || !message) {
-    res.status(400).json({ ok: false, error: 'Vyplňte jméno, e-mail a popis.' });
+  const fieldErrors = {};
+  if (!name) fieldErrors.name = 'Vyplňte jméno a příjmení.';
+  if (!email) fieldErrors.email = 'Vyplňte e-mail.';
+  if (!message) fieldErrors.message = 'Vyplňte popis požadované služby.';
+  if (Object.keys(fieldErrors).length) {
+    res.status(400).json({ ok: false, errors: fieldErrors });
     return;
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    res.status(400).json({ ok: false, error: 'Neplatný e-mail.' });
+    res.status(400).json({ ok: false, errors: { email: 'Zadejte platný e-mail.' } });
     return;
   }
 
@@ -179,13 +188,18 @@ export default async function handleRequest(req, res) {
   let photoBytesTotal = 0;
   for (const f of photos) {
     if (!ALLOWED_TYPES.has(f.mimeType)) {
-      res.status(400).json({ ok: false, error: 'Povolené jsou jen obrázky (PNG, JPG, …).' });
+      res.status(400).json({
+        ok: false,
+        errors: { photos: 'Povolené jsou jen obrázky (PNG, JPG, …).' },
+      });
       return;
     }
     if (f.buffer.length > MAX_TOTAL_PHOTO_BYTES) {
       res.status(400).json({
         ok: false,
-        error: `Jeden soubor max ${(MAX_TOTAL_PHOTO_BYTES / (1024 * 1024)).toFixed(1)} MB (limit hostingu Vercel).`,
+        errors: {
+          photos: `Jeden soubor max ${(MAX_TOTAL_PHOTO_BYTES / (1024 * 1024)).toFixed(1)} MB (limit hostingu Vercel).`,
+        },
       });
       return;
     }
@@ -193,7 +207,9 @@ export default async function handleRequest(req, res) {
     if (photoBytesTotal > MAX_TOTAL_PHOTO_BYTES) {
       res.status(400).json({
         ok: false,
-        error: `Fotky celkem max ${(MAX_TOTAL_PHOTO_BYTES / (1024 * 1024)).toFixed(1)} MB (limit hostingu Vercel).`,
+        errors: {
+          photos: `Fotky celkem mohou mít max. ${(MAX_TOTAL_PHOTO_BYTES / (1024 * 1024)).toFixed(1)} MB (limit hostingu Vercel).`,
+        },
       });
       return;
     }
