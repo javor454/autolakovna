@@ -268,7 +268,7 @@ export default async function handleRequest(req, res) {
 
   const stamp = new Date().toISOString().replace(/[:.]/g, '-');
   const safeName = name.replace(/[^a-zA-Z0-9]/g, '_').substring(0, 30);
-  const folderName = `${stamp}_${safeName}`;
+  const folderName = `${safeName}_${stamp}`;
 
   // Create dedicated folder for this inquiry
   let inquiryFolderId;
@@ -366,7 +366,7 @@ Nahrané fotky: ${uploaded.length > 0 ? uploaded.join(', ') : 'žádné'}
     await withTimeout(
       drive.files.create({
         requestBody: {
-          name: '_ZAZNAM.txt',
+          name: 'zaznam_formulare.txt',
           parents: [inquiryFolderId],
         },
         media: {

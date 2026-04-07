@@ -16,7 +16,9 @@
       "mcp__playwright__browser_evaluate",
       "mcp__playwright__browser_close",
       "WebSearch",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "mcp__serena__onboarding",
+      "mcp__serena__write_memory"
     ]
   }
 }

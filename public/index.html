@@ -84,6 +84,7 @@
   <script defer src="/contact-form.js"></script>
   <script defer src="/before-after-slider.js"></script>
   <script defer src="/nav-sections.js"></script>
+  <script defer src="/gallery.js"></script>
 </head>
 
 <body
@@ -103,7 +104,7 @@
       <div class="hidden md:flex items-center gap-8">
         <a class="nav-section-link nav-section-link--active" href="#sluzby">Služby</a>
         <a class="nav-section-link" href="#proces">Proces</a>
-        <!-- <a class="nav-section-link" href="#reference">Reference</a> -->
+        <a class="nav-section-link" href="#galerie">Galerie</a>
         <a class="nav-section-link" href="#kontakt">Kontakt</a>
       </div>
       <div class="flex items-center gap-4">
@@ -339,8 +340,22 @@
       </div>
     </div>
   </section>
+  <section class="py-24 bg-surface" id="galerie" aria-labelledby="galerie-heading">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 id="galerie-heading" class="text-4xl font-headline font-extrabold mb-4 text-center">Naše <span
+          class="text-[#e30613]">realizace</span></h2>
+      <p id="galerie-lead" class="text-on-surface-variant text-center text-lg mb-10 opacity-80 max-w-2xl mx-auto">
+        Ukázky oprav a lakování.
+      </p>
+      <p id="galerie-hint" class="hidden text-on-surface-variant text-center text-base mb-14 opacity-70 max-w-2xl mx-auto">
+        Klikněte na náhled pro zobrazení ve vysokém rozlišení.
+      </p>
+      <div id="galerie-mount"></div>
+      <p id="galerie-error" class="hidden text-center text-sm text-red-400 mt-8" role="alert"></p>
+    </div>
+  </section>
   <!-- Lead Gen Form Section -->
-  <section class="py-24 bg-surface" id="kontakt">
+  <section class="py-24 bg-surface-container-low" id="kontakt">
     <div class="max-w-4xl mx-auto px-6 text-center">
       <h2 class="text-4xl font-headline font-extrabold mb-6">Máte zájem? <br /><span class="text-[#e30613]">Napište
           nám!</span></h2>
@@ -348,7 +363,7 @@
         Pošlete nám fotku pro rychlejší nacenění. Odpovíme vám do 24 hodin s konkrétním návrhem termínu.
       </p>
       <div class="w-full max-w-2xl mx-auto">
-        <form class="bg-surface-container-low p-8 md:p-12 rounded-xl border border-outline/10 flex flex-col gap-5 text-left" id="contact-form"
+        <form class="bg-surface-container-high p-8 md:p-12 rounded-xl border border-outline/10 flex flex-col gap-5 text-left" id="contact-form"
           novalidate="">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-4 items-start">
             <div class="flex flex-col gap-2.5 w-full min-w-0">
@@ -416,7 +431,7 @@
     <div class="flex flex-col md:flex-row justify-between items-center px-8 gap-6 max-w-7xl mx-auto">
       <div class="flex flex-col items-center md:items-start gap-2">
         <div class="text-lg font-bold text-[#e5e2e1]">Lak&amp;Go Autolakovna</div>
-        <p class="font-manrope text-sm text-[#e5e2e1] opacity-60">© 2024 Lak&amp;Go Autolakovna. Všechna práva
+        <p class="font-manrope text-sm text-[#e5e2e1] opacity-60">© 2026 Lak&amp;Go Autolakovna. Všechna práva
           vyhrazena.</p>
       </div>
       <div class="flex flex-wrap justify-center gap-6 md:gap-12">
@@ -428,7 +443,7 @@
         <div class="flex flex-col items-center md:items-start">
           <span class="text-xs font-bold uppercase tracking-widest text-[#e30613] mb-2">Telefon</span>
           <a class="font-manrope text-sm text-[#e5e2e1] opacity-80 hover:text-[#e30613] transition-colors"
-            href="tel:123456789">+420 123 456 789</a>
+            href="tel:+420604903304">+420 604 903 304</a>
         </div>
         <div class="flex flex-col items-center md:items-start">
           <span class="text-xs font-bold uppercase tracking-widest text-[#e30613] mb-2">Právní</span>

@@ -1,4 +1,4 @@
-const SECTION_IDS = ["sluzby", "proces", "kontakt"];
+const SECTION_IDS = ["sluzby", "proces", "galerie", "kontakt"];
 
 function navActivationOffsetPx() {
   const nav = document.querySelector("nav");

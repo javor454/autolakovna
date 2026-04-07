@@ -1,4 +1,4 @@
-.PHONY: help install dev dev-bg down shell vercel-login vercel-whoami vercel-link deploy deploy-preview env-example logs drive-oauth-token
+.PHONY: help install dev dev-bg down shell vercel-login vercel-whoami vercel-link deploy deploy-preview env-example logs drive-oauth-token gallery-thumbs build-gallery-data
 
 help: ## Show available commands
 	@echo "Commands:"
@@ -40,3 +40,9 @@ logs: ## Show logs from the dev container
 
 drive-oauth-token: ## One-time: browser OAuth → prints GOOGLE_REFRESH_TOKEN (needs port 8765)
 	docker compose run --rm -p 8765:8765 dev node --env-file=.env scripts/google-oauth-token.mjs
+
+gallery-thumbs: ## gallery/* → public/gallery-thumbs/*.jpg (max 400px wide, gitignored sources)
+	docker compose run --rm dev sh -c "npm install && npm run gallery-thumbs"
+
+build-gallery-data: ## public/gallery-data.json from gallery-thumbs + optional gallery-drive-ids.json
+	docker compose run --rm dev sh -c "npm install && npm run build:gallery-data"

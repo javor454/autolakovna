@@ -1,8 +1,3 @@
-- 2024 v patičce?
-- telefonní číslo v tlačítku Zavolat v hlavičce je 123123123
-- dokument v drivu se vytvoří s názvem _ZÁZNAM.TXT
-- složka v drivu se vytvoří s timestamp názvem dlouhym, těžko se v tom orientuje
 - limit vercelu je 3MB na všechny fotky co nahraješ
 - sociální sítě
-- originální fotky - jednoduchý vykradený fotky najít na googlu
 - form telefonní číslo povinný?
