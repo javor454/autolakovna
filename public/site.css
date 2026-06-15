@@ -75,3 +75,176 @@
 .checkmark-circle {
   animation: checkmark 0.5s ease-out 0.2s both;
 }
+
+/* ── Ambient section background — subtle premium texture ── */
+/* Works alongside Tailwind bg-* color classes (adds background-image only) */
+.ambient-section {
+  background-image:
+    /* faint brushed-metal horizontal lines */
+    repeating-linear-gradient(
+      91deg,
+      transparent,
+      rgba(255, 255, 255, 0.007) 1px,
+      transparent 2px
+    ),
+    /* red glow — top-left corner */
+    radial-gradient(ellipse at -8% -15%, rgba(227, 6, 19, 0.09) 0%, transparent 55%),
+    /* secondary warm accent — mid-left */
+    radial-gradient(ellipse at 0% 60%, rgba(160, 10, 0, 0.04) 0%, transparent 45%),
+    /* silver/white reflection — bottom-right */
+    radial-gradient(ellipse at 108% 112%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+}
+
+/* ── Hero glow pulse ─────────────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 0.45; }
+}
+.hero-glow {
+  animation: glow-pulse 7s ease-in-out infinite;
+}
+
+/* ── Hero fluid scale (readable when viewport grows / browser zoom out) ── */
+.hero-content {
+  width: min(100%, clamp(20rem, 92vw, 56rem));
+}
+
+.hero-headline {
+  font-size: clamp(2.25rem, 4.5vw + 1rem, 4.5rem);
+  line-height: 1.1;
+}
+
+.hero-tagline {
+  font-size: clamp(1rem, 1.25vw + 0.65rem, 1.35rem);
+}
+
+.hero-logo {
+  width: min(100%, clamp(14rem, 42vw, 38rem));
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 28px rgba(0, 0, 0, 0.55));
+}
+
+.hero-bottom-scrim {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 65%;
+  background: linear-gradient(
+    to top,
+    rgba(19, 19, 19, 0.88) 0%,
+    rgba(19, 19, 19, 0.45) 35%,
+    rgba(19, 19, 19, 0.12) 65%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+.hero-brand {
+  position: relative;
+}
+
+/* ── Button glow ─────────────────────────────────────────── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 0 28px rgba(227, 6, 19, 0.3);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.btn-primary:hover {
+  box-shadow: 0 0 40px rgba(227, 6, 19, 0.5);
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,0.12) 50%, transparent 70%);
+  transform: translateX(-150%);
+  transition: transform 0.5s ease;
+}
+.btn-primary:hover::after {
+  transform: translateX(150%);
+}
+
+/* ── Service photo cards ─────────────────────────────────── */
+.service-photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.service-photo-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 0 1px rgba(227, 6, 19, 0.5), 0 20px 50px rgba(0,0,0,0.6);
+}
+.service-photo-card .card-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s ease;
+}
+.service-photo-card:hover .card-bg {
+  transform: scale(1.05);
+}
+.service-photo-card .card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
+}
+.service-photo-card .card-hover-accent {
+  position: absolute;
+  inset: 0;
+  background: rgba(227, 6, 19, 0);
+  transition: background 0.3s ease;
+}
+.service-photo-card:hover .card-hover-accent {
+  background: rgba(227, 6, 19, 0.08);
+}
+.service-photo-card .card-content {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 1.5rem;
+}
+.service-photo-card .precision-line-bottom {
+  height: 2px;
+  background: #e30613;
+  width: 0;
+  transition: width 0.35s ease;
+  margin-bottom: 0.75rem;
+}
+.service-photo-card:hover .precision-line-bottom {
+  width: 3rem;
+}
+
+/* ── ATTRECO watermark ───────────────────────────────────── */
+.section-watermark {
+  position: absolute;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(4rem, 12vw, 9rem);
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.028);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+/* ── Scroll fade-in ──────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* stagger children */
+.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.fade-in:nth-child(3) { transition-delay: 0.2s; }
+.fade-in:nth-child(4) { transition-delay: 0.3s; }

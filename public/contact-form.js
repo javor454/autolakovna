@@ -219,7 +219,16 @@
         return;
       }
     }
-    var fd = new FormData(form);
+    var fd = new FormData();
+    ['name', 'email', 'phone', 'message'].forEach(function (fieldName) {
+      var el = form.elements[fieldName];
+      if (el && el.value !== undefined) fd.append(fieldName, el.value);
+    });
+    if (photosInput && photosInput.files && photosInput.files.length) {
+      for (var i = 0; i < photosInput.files.length; i++) {
+        fd.append('photos', photosInput.files[i]);
+      }
+    }
     fetch('/api/contact', { method: 'POST', body: fd })
       .then(function (r) {
         if (r.status === 413) {

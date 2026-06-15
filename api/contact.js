@@ -110,6 +110,9 @@ async function parseMultipart(req) {
   const form = formidable({
     maxFileSize: MAX_TOTAL_PHOTO_BYTES,
     keepExtensions: true,
+    // Browsers send an empty file part when <input type="file"> has no selection.
+    allowEmptyFiles: true,
+    minFileSize: 0,
   });
 
   return new Promise((resolve, reject) => {
@@ -129,6 +132,7 @@ async function parseMultipart(req) {
       const photosArray = files.photos ? (Array.isArray(files.photos) ? files.photos : [files.photos]) : [];
 
       for (const f of photosArray) {
+        if (!f.size) continue;
         const buffer = await readFile(f.filepath);
         formattedFiles.push({
           name: 'photos',
@@ -255,7 +259,17 @@ export default async function handleRequest(req, res) {
       authClient = await withTimeout(auth.getClient(), GOOGLE_AUTH_TIMEOUT_MS, 'Google přihlášení');
     }
   } catch (err) {
-    console.error('Google Drive auth failed:', err);
+    const invalidGrant =
+      err.message?.includes('invalid_grant') ||
+      err.response?.data?.error === 'invalid_grant' ||
+      err.cause?.message === 'invalid_grant';
+    if (invalidGrant) {
+      console.error(
+        'Google Drive auth failed: invalid_grant — refresh token je neplatný (expirovaný, zrušený, nebo neodpovídá GOOGLE_CLIENT_ID/SECRET). Spusťte make drive-oauth-token a aktualizujte GOOGLE_REFRESH_TOKEN na Vercelu.',
+      );
+    } else {
+      console.error('Google Drive auth failed:', err);
+    }
     res.status(502).json({
       ok: false,
       error:
@@ -350,7 +364,7 @@ export default async function handleRequest(req, res) {
   // Create immutable record in folder
   try {
     console.info('[contact] creating record file...');
-    const record = `Poptávka Lak&Go
+    const record = `Poptávka Attreco
 Datum: ${new Date().toLocaleString('cs-CZ', { timeZone: 'Europe/Prague' })}
 Jméno: ${name}
 E-mail: ${email}
@@ -392,7 +406,7 @@ Nahrané fotky: ${uploaded.length > 0 ? uploaded.join(', ') : 'žádné'}
   if (emailEnabled) {
     console.info('[contact] sending email...');
     const textBody = [
-      'Nová poptávka z webu Lak&Go',
+      'Nová poptávka z webu Attreco',
       '',
       `Jméno: ${name}`,
       `E-mail: ${email}`,

@@ -29,6 +29,9 @@ vercel-whoami: ## Ověří VERCEL_TOKEN z .env (bez vercel login — stejné jak
 vercel-link: ## Propojení projektu (s tokenem z .env; může vyžadovat -it u prvního linku)
 	docker compose run --rm -it dev sh -c 'npx vercel link --token "$$VERCEL_TOKEN"'
 
+vercel-update: ## Update local Vercel CLI (used by npx in deploy/dev)
+	docker compose run --rm dev sh -c 'npm install vercel@latest --save-dev'
+
 deploy-preview: ## Nasazení preview (unikátní URL) — VERCEL_TOKEN + .vercel/project.json
 	docker compose run --rm dev sh -c 'npx vercel deploy --token "$$VERCEL_TOKEN" --yes'
 

@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "sharp": "^0.34.5",
-    "vercel": "^40.1.0"
+    "vercel": "^53.4.0"
   },
   "overrides": {
     "@tootallnate/once": "^3.0.1",

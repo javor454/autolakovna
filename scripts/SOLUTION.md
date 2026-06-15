@@ -68,7 +68,7 @@ Each submission creates folder: `TIMESTAMP_SANITIZED_NAME/`
 ### 2. Immutable Record
 `_ZAZNAM.txt` contains:
 ```
-Poptávka Lak&Go
+Poptávka Attreco
 Datum: 3. 4. 2026 14:30:00
 Jméno: Jan Novák
 E-mail: jan@seznam.cz
